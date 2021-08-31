@@ -28,22 +28,24 @@ inputRefs.addEventListener('change', onThemeSwitch);
 
 // document.body.classList.add(Theme.LIGHT);
 
-// function upgradeClass(addClass, removeClass) {
-//   document.body.classList.add(addClass);
-//   document.body.classList.remove(removeClass);
-// }
+function upgradeClass(addClass, removeClass) {
+  document.body.classList.add(addClass);
+  document.body.classList.remove(removeClass);
+}
 
 function onThemeSwitch(e) {
   const isChecked = e.target.checked;
   if (isChecked) {
-    document.body.classList.add(Theme.DARK);
-    document.body.classList.remove(Theme.LIGHT);
+    upgradeClass(Theme.DARK, Theme.LIGHT);
+    // document.body.classList.add(Theme.DARK);
+    // document.body.classList.remove(Theme.LIGHT);
     LS.save(THEME, Theme.DARK);
     return;
   }
 
-  document.body.classList.add(Theme.LIGHT);
-  document.body.classList.remove(Theme.DARK);
+  upgradeClass(Theme.LIGHT, Theme.DARK);
+  //   document.body.classList.add(Theme.LIGHT);
+  //   document.body.classList.remove(Theme.DARK);
   LS.save(THEME, Theme.LIGHT);
 }
 
@@ -87,3 +89,8 @@ chekTheme();
 //   document.body.classList.add(Theme.LIGHT);
 // };
 // chekTheme();
+
+// function upgradeClass(addClass, removeClass) {
+//   document.body.classList.add(addClass);
+//   document.body.classList.remove(removeClass);
+// }
