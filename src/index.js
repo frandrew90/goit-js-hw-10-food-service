@@ -42,7 +42,7 @@ function onThemeSwitch(e) {
   LS.save(THEME, Theme.LIGHT);
 }
 
-let theme = LS.load(THEME) || Theme.LIGHT;
+let theme = LS.load(THEME) ?? Theme.LIGHT;
 
 const chekTheme = function () {
   if (theme) {
